@@ -7,5 +7,29 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  console.log("Hello Rigo from the console!");
+  console.log("Domain Name Generator!");
+  let pronouns = ["play", "see"];
+  let adjs = ["our", "the"];
+  let nouns = ["game", "movie"];
+
+  const domains = [];
+
+  for (const i in pronouns) {
+    for (const j in adjs) {
+      for (const k in nouns) {
+        const pronoun = pronouns[i];
+        const adj = adjs[j];
+        const noun = nouns[k];
+
+        const d = pronoun + adj + noun + ".com";
+        domains.push(d);
+      }
+    }
+  }
+  console.log(domains);
+
+  const listItems = domains
+    .map((element, position, array) => `<li>${element}</li>`)
+    .join("");
+  document.querySelector("div").innerHTML = listItems;
 };
